@@ -1,0 +1,1259 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>Magento Test</title>
+
+        <!-- Bootstrap core CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+        <!-- Custom fonts for this template -->
+        <link rel="stylesheet" href="vendor/font-awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" href="vendor/simple-line-icons/css/simple-line-icons.css">
+        <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+
+    </head>
+
+    <style>
+  /* -------------------------------- 
+Primary style
+-------------------------------- */
+*, *::after, *::before {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: "Open Sans", sans-serif;
+  color: #2c343b;
+}
+
+a {
+  color: #d44457;
+  text-decoration: none;
+}
+
+img{
+  max-width: 100%;
+  max-height: 95%;
+}
+
+video {
+  max-width: 100%;
+}
+
+li{
+ list-style: none;
+}
+
+/*
+custom code
+*/
+.features{
+  margin-top: -10px;
+  background-color: #d44457;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  font-size: 80%;
+  color: white;
+  margin-right: auto;
+  margin-left: auto;
+}
+.feature{
+ text-align: center;
+}
+.large-icon{
+  font-size: 200%;
+}
+.main-categories-header{
+  text-align: center;
+  font-size: 200%;
+  padding-top: 3%;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  color: rgb(32, 32, 32);
+}
+
+/*
+image enlarge on hover
+*/
+* {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.item {
+  position: relative;
+  overflow: hidden;
+}
+.item img {
+  max-width: 100%;
+  
+  -moz-transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+.item:hover img {
+  -moz-transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+.image-to-enlarge{
+  -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+  filter: grayscale(100%);
+}
+
+/*
+Text overlay
+*/
+
+*, *:before, *:after{
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing:border-box;
+  box-sizing: border-box;
+}
+
+.main-title{
+  color: #2d2d2d;
+  text-align: center;
+  text-transform: capitalize;
+  padding: 0.7em 0;
+}
+
+.container-overlay{
+  padding: 1em 0;
+  float: left;
+  width: 50%;
+}
+@media screen and (max-width: 640px){
+  .container-overlay{
+    display: block;
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 900px){
+  .container-overlay{
+    width: 33.33333%;
+  }
+}
+
+.container-overlay .title{
+  color: #1a1a1a;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.content {
+  position: relative;
+  width: 90%;
+  max-width: 400px;
+  margin: auto;
+  overflow: hidden;
+}
+
+.content .content-overlay {
+  background: rgba(0,0,0,0.7);
+  position: absolute;
+  height: 99%;
+  width: 100%;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  opacity: 0;
+  -webkit-transition: all 0.4s ease-in-out 0s;
+  -moz-transition: all 0.4s ease-in-out 0s;
+  transition: all 0.4s ease-in-out 0s;
+}
+
+.content:hover .content-overlay{
+  opacity: 1;
+}
+
+.content-image{
+  width: 100%;
+}
+
+.content-details {
+  position: absolute;
+  text-align: center;
+  padding-left: 1em;
+  padding-right: 1em;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  opacity: 0;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  -webkit-transition: all 0.3s ease-in-out 0s;
+  -moz-transition: all 0.3s ease-in-out 0s;
+  transition: all 0.3s ease-in-out 0s;
+}
+
+.content:hover .content-details{
+  top: 50%;
+  left: 50%;
+  opacity: 1;
+}
+
+.content-details h3{
+  color: #fff;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  margin-bottom: 0.5em;
+  text-transform: uppercase;
+}
+
+.content-details p{
+  color: #fff;
+  font-size: 0.8em;
+}
+
+.fadeIn-bottom{
+  top: 80%;
+}
+
+.fadeIn-top{
+  top: 20%;
+}
+
+.fadeIn-left{
+  left: 20%;
+}
+
+.fadeIn-right{
+  left: 80%;
+}
+
+
+
+/* -------------------------------- 
+Hero Slider - by CodyHouse.co
+-------------------------------- */
+/* Main Header */
+.cd-header {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  background-color: #21272c;
+}
+
+@media only screen and (min-width: 768px) {
+  .cd-header {
+    height: 70px;
+    background-color: transparent;
+  }
+}
+
+.cd-header__logo {
+  float: left;
+  margin: 13px 0 0 5%;
+}
+
+.cd-header__logo img {
+  display: block;
+}
+
+@media only screen and (min-width: 768px) {
+  .cd-header__logo {
+    margin: 23px 0 0 5%;
+  }
+}
+
+.cd-header__nav {
+  /* mobile first - navigation hidden by default, triggered by tap/click on navigation icon */
+  float: right;
+  margin-right: 5%;
+  width: 44px;
+  height: 100%;
+  background: url("../assets/cd-icon-menu.svg") no-repeat center center;
+}
+
+.cd-header__nav ul {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  -webkit-transform: translateY(-100%);
+      -ms-transform: translateY(-100%);
+          transform: translateY(-100%);
+}
+
+.cd-header__nav ul.cd-is-visible {
+  -webkit-box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+  -webkit-transform: translateY(50px);
+      -ms-transform: translateY(50px);
+          transform: translateY(50px);
+}
+
+.cd-header__nav a {
+  display: block;
+  height: 50px;
+  line-height: 50px;
+  padding-left: 5%;
+  color: #ffffff;
+}
+
+@media only screen and (min-width: 768px) {
+  .cd-header__nav {
+    /* reset navigation values */
+    width: auto;
+    height: auto;
+    background: none;
+  }
+  .cd-header__nav ul {
+    position: static;
+    width: auto;
+    -webkit-transform: translateY(0);
+        -ms-transform: translateY(0);
+            transform: translateY(0);
+    line-height: 70px;
+  }
+  .cd-header__nav ul.cd-is-visible {
+    -webkit-transform: translateY(0);
+        -ms-transform: translateY(0);
+            transform: translateY(0);
+  }
+  .cd-header__nav li {
+    display: inline-block;
+    margin-left: 1em;
+  }
+  .cd-header__nav a {
+    display: inline-block;
+    height: auto;
+    line-height: normal;
+    background: transparent;
+    padding: .6em 1em;
+    border-top: none;
+  }
+}
+
+/* Slider */
+
+.hero{
+  background-image: url("http://blockaudit.io/magento%20photos/yeezy8.jpg");
+}
+
+.cd-hero {
+  position: relative;
+}
+
+.cd-hero__slider {
+  position: relative;
+  height: 360px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.cd-hero__slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* Force Hardware Acceleration */
+  -webkit-transform: translateZ(0px);
+          transform: translateZ(0px);
+  will-change: transform;
+  -webkit-transform: translateX(100%);
+      -ms-transform: translateX(100%);
+          transform: translateX(100%);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.cd-hero__slide.cd-hero__slide--selected {
+  /* this is the visible slide */
+  -webkit-transform: translateX(0);
+      -ms-transform: translateX(0);
+          transform: translateX(0);
+}
+
+.cd-hero__slide.cd-hero__slide--move-left {
+  /* slide hidden on the left */
+  -webkit-transform: translateX(-100%);
+      -ms-transform: translateX(-100%);
+          transform: translateX(-100%);
+}
+
+.cd-hero__slide.cd-hero__slide--is-moving,
+.cd-hero__slide.cd-hero__slide--selected {
+  /* the cd-hero__slide--is-moving class is assigned to the slide which is moving outside the viewport */
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+  transition: transform 0.5s, -webkit-transform 0.5s;
+}
+
+@media only screen and (min-width: 768px) {
+  .cd-hero__slider {
+    height: 500px;
+  }
+}
+
+@media only screen and (min-width: 1170px) {
+  .cd-hero__slider {
+    height: 680px;
+  }
+}
+
+/* Slide style */
+.cd-hero__slide {
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.cd-hero__slide:first-of-type {
+  background-color: white;
+}
+
+.cd-hero__slide:nth-of-type(2) {
+  background-color: white;
+  background-image: url("../assets/tech-1-mobile.jpg");
+}
+
+.cd-hero__slide:nth-of-type(3) {
+  background-color: white;
+  background-image: url("../assets/tech-2-mobile.jpg");
+}
+
+.cd-hero__slide:nth-of-type(4) {
+  background-color: white;
+  background-image: url("../assets/video-replace-mobile.jpg");
+}
+
+.cd-hero__slide:nth-of-type(5) {
+  background-color: white;
+  background-image: url(../assets/img.jpg);
+}
+
+.cd-hero__content.cd-hero__content--full-width,
+.cd-hero__content.cd-hero__content--half-width {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  /* this padding is used to align the text */
+  padding-top: 100px;
+  text-align: center;
+  /* Force Hardware Acceleration */
+  -webkit-transform: translateZ(0);
+          transform: translateZ(0);
+  will-change: transform;
+}
+
+.cd-hero__content h2, .cd-hero__content p, .cd-hero__btn, .cd-hero__content--img img {
+  /* Force Hardware Acceleration */
+  -webkit-transform: translateZ(0);
+          transform: translateZ(0);
+  will-change: transform;
+}
+
+.cd-hero__content.cd-hero__content--img {
+  /* hide image on mobile device */
+  display: none;
+}
+
+.cd-hero__content--img img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  bottom: auto;
+  right: auto;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+      -ms-transform: translateX(-50%) translateY(-50%);
+          transform: translateX(-50%) translateY(-50%);
+}
+
+.cd-hero__content.cd-hero__content--bg-video {
+  /* hide video on mobile device */
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.cd-hero__content--bg-video video {
+  /* you won't see this element in the html, but it will be injected using javascript */
+  display: block;
+  min-height: 100%;
+  min-width: 100%;
+  max-width: none;
+  height: auto;
+  width: auto;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  bottom: auto;
+  right: auto;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+      -ms-transform: translateX(-50%) translateY(-50%);
+          transform: translateX(-50%) translateY(-50%);
+}
+
+.cd-hero__content h2, .cd-hero__content p {
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  line-height: 1.2;
+  margin: 0 auto 14px;
+  color: rgb(32, 32, 32);
+  width: 90%;
+  max-width: 400px;
+}
+
+.cd-hero__content h2 {
+  font-size: 2.4rem;
+}
+
+.cd-hero__content p {
+  font-size: 1.4rem;
+  line-height: 1.4;
+}
+
+.cd-hero__btn {
+  display: inline-block;
+  padding: 1.2em 1.4em;
+  margin-top: .8em;
+  background-color: rgba(212, 68, 87, 0.9);
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #ffffff;
+  text-transform: uppercase;
+  -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+  -webkit-transition: background-color 0.2s;
+  transition: background-color 0.2s;
+}
+
+.cd-hero__btn.cd-hero__btn--secondary {
+  background-color: rgba(22, 26, 30, 0.8);
+}
+
+.cd-hero__btn:nth-of-type(2) {
+  margin-left: 1em;
+}
+
+.cd-hero__btn:hover {
+  background-color: #d44457;
+}
+
+.cd-hero__btn.cd-hero__btn--secondary:hover {
+  background-color: #161a1e;
+}
+
+@media only screen and (min-width: 768px) {
+  .cd-hero__slide:nth-of-type(2),
+  .cd-hero__slide:nth-of-type(3),
+  .cd-hero__slide:nth-of-type(4) {
+    background-image: none;
+  }
+  .cd-hero__content.cd-hero__content--full-width,
+  .cd-hero__content.cd-hero__content--half-width {
+    padding-top: 150px;
+  }
+  .cd-hero__content.cd-hero__content--bg-video {
+    display: block;
+  }
+  .cd-hero__content.cd-hero__content--half-width {
+    width: 45%;
+  }
+  .cd-hero__content.cd-hero__content--half-width:first-of-type {
+    left: 5%;
+  }
+  .cd-hero__content.cd-hero__content--half-width:nth-of-type(2) {
+    right: 5%;
+    left: auto;
+  }
+  .cd-hero__content.cd-hero__content--img {
+    display: block;
+  }
+  .cd-hero__content h2, .cd-hero__content p {
+    max-width: 520px;
+  }
+  .cd-hero__content h2 {
+    font-size: 2.4em;
+    font-weight: 300;
+  }
+  .cd-hero__btn {
+    font-size: 1.4rem;
+  }
+}
+
+@media only screen and (min-width: 1170px) {
+  .cd-hero__content.cd-hero__content--full-width,
+  .cd-hero__content.cd-hero__content--half-width {
+    padding-top: 220px;
+  }
+  .cd-hero__content h2, .cd-hero__content p {
+    margin-bottom: 20px;
+  }
+  .cd-hero__content h2 {
+    font-size: 3.2em;
+  }
+  .cd-hero__content p {
+    font-size: 1.6rem;
+  }
+}
+
+/* Single slide animation */
+@media only screen and (min-width: 768px) {
+  .cd-hero__content.cd-hero__content--half-width {
+    opacity: 0;
+    -webkit-transform: translateX(40px);
+        -ms-transform: translateX(40px);
+            transform: translateX(40px);
+  }
+  .cd-hero__slide--move-left .cd-hero__content.cd-hero__content--half-width {
+    -webkit-transform: translateX(-40px);
+        -ms-transform: translateX(-40px);
+            transform: translateX(-40px);
+  }
+  .cd-hero__slide--selected .cd-hero__content.cd-hero__content--half-width {
+    /* this is the visible slide */
+    opacity: 1;
+    -webkit-transform: translateX(0);
+        -ms-transform: translateX(0);
+            transform: translateX(0);
+  }
+  .cd-hero__slide--is-moving .cd-hero__content.cd-hero__content--half-width {
+    /* this is the slide moving outside the viewport 
+    wait for the end of the transition on the <li> parent before set opacity to 0 and translate to 40px/-40px */
+    -webkit-transition: opacity 0s 0.5s, -webkit-transform 0s 0.5s;
+    transition: opacity 0s 0.5s, -webkit-transform 0s 0.5s;
+    transition: opacity 0s 0.5s, transform 0s 0.5s;
+    transition: opacity 0s 0.5s, transform 0s 0.5s, -webkit-transform 0s 0.5s;
+  }
+  .cd-hero__slide--from-left.cd-hero__slide--selected .cd-hero__content.cd-hero__content--half-width:nth-of-type(2),
+  .cd-hero__slide--from-right.cd-hero__slide--selected .cd-hero__content.cd-hero__content--half-width:first-of-type {
+    /* this is the selected slide - different animation if it's entering from left or right */
+    -webkit-transition: opacity 0.4s 0.2s, -webkit-transform 0.5s 0.2s;
+    transition: opacity 0.4s 0.2s, -webkit-transform 0.5s 0.2s;
+    transition: opacity 0.4s 0.2s, transform 0.5s 0.2s;
+    transition: opacity 0.4s 0.2s, transform 0.5s 0.2s, -webkit-transform 0.5s 0.2s;
+  }
+  .cd-hero__slide--from-left.cd-hero__slide--selected .cd-hero__content.cd-hero__content--half-width:first-of-type,
+  .cd-hero__slide--from-right.cd-hero__slide--selected .cd-hero__content.cd-hero__content--half-width:nth-of-type(2) {
+    /* this is the selected slide - different animation if it's entering from left or right */
+    -webkit-transition: opacity 0.4s 0.4s, -webkit-transform 0.5s 0.4s;
+    transition: opacity 0.4s 0.4s, -webkit-transform 0.5s 0.4s;
+    transition: opacity 0.4s 0.4s, transform 0.5s 0.4s;
+    transition: opacity 0.4s 0.4s, transform 0.5s 0.4s, -webkit-transform 0.5s 0.4s;
+  }
+  .cd-hero__content--full-width h2,
+  .cd-hero__content--full-width p,
+  .cd-hero__content--full-width .cd-hero__btn {
+    -webkit-transform: translateX(100px);
+        -ms-transform: translateX(100px);
+            transform: translateX(100px);
+  }
+  .cd-hero__slide--move-left .cd-hero__content--full-width h2,
+  .cd-hero__slide--move-left .cd-hero__content--full-width p,
+  .cd-hero__slide--move-left .cd-hero__content--full-width .cd-hero__btn {
+    -webkit-transform: translateX(-100px);
+        -ms-transform: translateX(-100px);
+            transform: translateX(-100px);
+  }
+  .cd-hero__slide--selected .cd-hero__content--full-width h2,
+  .cd-hero__slide--selected .cd-hero__content--full-width p,
+  .cd-hero__slide--selected .cd-hero__content--full-width .cd-hero__btn {
+    /* this is the visible slide */
+    -webkit-transform: translateX(0);
+        -ms-transform: translateX(0);
+            transform: translateX(0);
+  }
+  .cd-hero__slide--is-moving .cd-hero__content--full-width h2,
+  .cd-hero__slide--is-moving .cd-hero__content--full-width p,
+  .cd-hero__slide--is-moving .cd-hero__content--full-width .cd-hero__btn {
+    /* this is the slide moving outside the viewport 
+    wait for the end of the transition on the li parent before set translate to 100px/-100px */
+    -webkit-transition: -webkit-transform 0s 0.5s;
+    transition: -webkit-transform 0s 0.5s;
+    transition: transform 0s 0.5s;
+    transition: transform 0s 0.5s, -webkit-transform 0s 0.5s;
+  }
+  .cd-hero__slide--selected h2 {
+    -webkit-transition: -webkit-transform 0.5s 0.2s;
+    transition: -webkit-transform 0.5s 0.2s;
+    transition: transform 0.5s 0.2s;
+    transition: transform 0.5s 0.2s, -webkit-transform 0.5s 0.2s;
+  }
+  .cd-hero__slide--selected p {
+    -webkit-transition: -webkit-transform 0.5s 0.3s;
+    transition: -webkit-transform 0.5s 0.3s;
+    transition: transform 0.5s 0.3s;
+    transition: transform 0.5s 0.3s, -webkit-transform 0.5s 0.3s;
+  }
+  .cd-hero__slide--selected .cd-hero__btn {
+    -webkit-transition: background-color 0.2s 0s, -webkit-transform 0.5s 0.4s;
+    transition: background-color 0.2s 0s, -webkit-transform 0.5s 0.4s;
+    transition: transform 0.5s 0.4s, background-color 0.2s 0s;
+    transition: transform 0.5s 0.4s, background-color 0.2s 0s, -webkit-transform 0.5s 0.4s;
+  }
+}
+
+/* Slider navigation */
+.cd-hero__nav {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  z-index: 2;
+  text-align: center;
+  height: 55px;
+  background-color: rgba(0, 1, 1, 0.5);
+}
+
+.cd-hero__nav nav, .cd-hero__nav ul, .cd-hero__nav li, .cd-hero__nav a {
+  height: 100%;
+}
+
+.cd-hero__nav nav {
+  display: inline-block;
+  position: relative;
+}
+
+
+.cd-hero__marker.cd-hero__marker--item-2 {
+  -webkit-transform: translateX(100%);
+      -ms-transform: translateX(100%);
+          transform: translateX(100%);
+}
+
+.cd-hero__marker.cd-hero__marker--item-3 {
+  -webkit-transform: translateX(200%);
+      -ms-transform: translateX(200%);
+          transform: translateX(200%);
+}
+
+.cd-hero__marker.cd-hero__marker--item-4 {
+  -webkit-transform: translateX(300%);
+      -ms-transform: translateX(300%);
+          transform: translateX(300%);
+}
+
+.cd-hero__marker.cd-hero__marker--item-5 {
+  -webkit-transform: translateX(400%);
+      -ms-transform: translateX(400%);
+          transform: translateX(400%);
+}
+
+.cd-hero__nav ul::after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+.cd-hero__nav li {
+  display: inline-block;
+  width: 60px;
+  float: left;
+}
+
+.cd-hero__nav .cd-selected a {
+  color: #2c343b;
+}
+
+.cd-hero__nav .cd-selected a:hover {
+  background-color: transparent;
+}
+
+.cd-hero__nav a {
+  display: block;
+  position: relative;
+  padding-top: 35px;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #a8b4be;
+  -webkit-transition: background-color 0.2s;
+  transition: background-color 0.2s;
+}
+
+.cd-hero__nav a::before {
+  content: '';
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  top: 8px;
+  left: 50%;
+  right: auto;
+  -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+          transform: translateX(-50%);
+  background: url(../assets/cd-icon-navigation.svg) no-repeat 0 0;
+}
+
+.cd-hero__nav a:hover {
+  background-color: rgba(0, 1, 1, 0.5);
+}
+
+.cd-hero__nav li:first-of-type a::before {
+  background-position: 0 0;
+}
+
+.cd-hero__nav li.cd-selected:first-of-type a::before {
+  background-position: 0 -24px;
+}
+
+.cd-hero__nav li:nth-of-type(2) a::before {
+  background-position: -24px 0;
+}
+
+.cd-hero__nav li.cd-selected:nth-of-type(2) a::before {
+  background-position: -24px -24px;
+}
+
+.cd-hero__nav li:nth-of-type(3) a::before {
+  background-position: -48px 0;
+}
+
+.cd-hero__nav li.cd-selected:nth-of-type(3) a::before {
+  background-position: -48px -24px;
+}
+
+.cd-hero__nav li:nth-of-type(4) a::before {
+  background-position: -72px 0;
+}
+
+.cd-hero__nav li.cd-selected:nth-of-type(4) a::before {
+  background-position: -72px -24px;
+}
+
+.cd-hero__nav li:nth-of-type(5) a::before {
+  background-position: -96px 0;
+}
+
+.cd-hero__nav li.cd-selected:nth-of-type(5) a::before {
+  background-position: -96px -24px;
+}
+
+@media only screen and (min-width: 768px) {
+  .cd-hero__nav {
+    height: 80px;
+  }
+  .cd-hero__marker,
+  .cd-hero__nav li {
+    width: 95px;
+  }
+  .cd-hero__nav a {
+    padding-top: 48px;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+  }
+  .cd-hero__nav a::before {
+    top: 18px;
+  }
+}
+
+/* Main Content */
+.cd-main-content {
+  width: 90%;
+  max-width: 768px;
+  margin: 0 auto;
+  padding: 2em 0;
+}
+
+.cd-main-content p {
+  font-size: 1.4rem;
+  line-height: 1.8;
+  color: #999999;
+  margin: 2em 0;
+}
+
+@media only screen and (min-width: 1170px) {
+  .cd-main-content {
+    padding: 3em 0;
+  }
+  .cd-main-content p {
+    font-size: 1.6rem;
+  }
+}
+
+/* Javascript disabled */
+.no-js .cd-hero__slide {
+  display: none;
+}
+
+.no-js .cd-hero__slide.cd-hero__slide--selected {
+  display: block;
+}
+
+.no-js .cd-hero__nav {
+  display: none;
+}
+    </style>
+
+
+<body>
+
+	<section class="cd-hero js-cd-hero js-cd-autoplay">
+		<ul class="cd-hero__slider">
+			<li class="cd-hero__slide cd-hero__slide--selected js-cd-slide">
+        <div class="cd-hero__content cd-hero__content--full-width hero">
+					<h2 style="color: white;" >Magento Shop</h2>
+					<p style="color: white;" >A simple, responsive Magento 2 theme.</p>
+					<a href="http://blockaudit.io/magento/men.html" class="cd-hero__btn" style="color: white; text-decoration: none;">Start Shopping <i class="fas fa-shopping-cart"></i></a>
+				</div> <!-- .cd-hero__content -->
+			</li>
+
+			<li class="cd-hero__slide js-cd-slide">
+				<div class="cd-hero__content cd-hero__content--half-width">
+					<h2>MOCK NECK SWEATSHIRT</h2>
+					<p>COLOR TRENCH</p>
+					<a href="http://blockaudit.io/magento/mock-neck-sweatshirt-color-trench.html" class="cd-hero__btn" style="color: white; text-decoration: none;">Buy <i class="fas fa-shopping-cart"></i></a>
+					<a href="http://blockaudit.io/magento/mock-neck-sweatshirt-color-trench.html" class="cd-hero__btn cd-hero__btn--secondary" style="color: white; text-decoration: none;">More Info</a>
+				</div> <!-- .cd-hero__content -->
+
+				<div class="cd-hero__content cd-hero__content--half-width cd-hero__content--img">
+					<img src="http://blockaudit.io/magento%20photos/yeezy1.jpg" alt="-">
+				</div> <!-- .cd-hero__content -->
+			</li>
+
+			<li class="cd-hero__slide js-cd-slide">
+				<div class="cd-hero__content cd-hero__content--half-width cd-hero__content--img">
+          <img src="http://blockaudit.io/magento%20photos/yeezy2.jpg" alt="-">
+				</div> <!-- .cd-hero__content -->
+
+				<div class="cd-hero__content cd-hero__content--half-width">
+					<h2>HEAVY CARGO PARKA</h2>
+					<p>COLOR COMRADE</p>
+					<a href="http://blockaudit.io/magento/heavy-cargo-parka-color-comrade.html" class="cd-hero__btn" style="color: white; text-decoration: none;">Buy <i class="fas fa-shopping-cart"></i></a>
+					<a href="http://blockaudit.io/magento/heavy-cargo-parka-color-comrade.html" class="cd-hero__btn cd-hero__btn--secondary" style="color: white; text-decoration: none;">More Info</a>
+				</div> <!-- .cd-hero__content -->
+				
+			</li>
+
+			<li class="cd-hero__slide js-cd-slide">
+        <div class="cd-hero__content cd-hero__content--half-width">
+            <h2>EMBOSSED PYTHON CHELSEA BOOT</h2>
+            <p>COLOR PYTHON</p>
+            <a href="http://blockaudit.io/magento/embossed-python-chelsea-boot-color-python.html" class="cd-hero__btn" style="color: white; text-decoration: none;">Buy <i class="fas fa-shopping-cart"></i></a>
+            <a href="http://blockaudit.io/magento/embossed-python-chelsea-boot-color-python.html" class="cd-hero__btn cd-hero__btn--secondary" style="color: white; text-decoration: none;">More Info</a>
+        </div> <!-- .cd-hero__content -->
+
+        <div class="cd-hero__content cd-hero__content--half-width cd-hero__content--img">
+            <img src="http://blockaudit.io/magento%20photos/yeezy3.jpg" alt="-">
+        </div> <!-- .cd-hero__content -->
+        </li>
+
+			<li class="cd-hero__slide js-cd-slide">
+        <div class="cd-hero__content cd-hero__content--half-width cd-hero__content--img">
+            <img src="http://blockaudit.io/magento%20photos/yeezy4.jpg" alt="-">
+        </div> <!-- .cd-hero__content -->
+
+        <div class="cd-hero__content cd-hero__content--half-width">
+            <h2>WORKER JEAN JACKET</h2>
+            <p>COLOR FADED INK</p>
+            <a href="http://blockaudit.io/magento/worker-jean-jacket-color-faded-ink.html" class="cd-hero__btn" style="color: white; text-decoration: none;">Buy <i class="fas fa-shopping-cart"></i></a>
+            <a href="http://blockaudit.io/magento/worker-jean-jacket-color-faded-ink.html" class="cd-hero__btn cd-hero__btn--secondary" style="color: white; text-decoration: none;">More Info</a>
+        </div> <!-- .cd-hero__content -->
+        
+      </li>
+		</ul> <!-- .cd-hero__slider -->
+
+		<div class="cd-hero__nav js-cd-nav">
+			<nav>
+				<span class="cd-hero__marker cd-hero__marker--item-1 js-cd-marker"></span>
+				<ul>
+					<li class="cd-selected"><a href="#0">Intro</a></li>
+					<li><a href="#0">Deal I</a></li>
+					<li><a href="#0">Deal II</a></li>
+					<li><a href="#0">Deal III</a></li>
+					<li><a href="#0">Deal IV</a></li>
+				</ul>
+			</nav> 
+		</div> <!-- .cd-hero__nav -->
+	</section> <!-- .cd-hero -->
+  
+  <!-- features -->
+    <div class="row features">
+      <div class="col-sm feature">
+        <p class="large-icon"><i class="fas fa-truck"></i></p>
+        <p>FREE SHIPPING</p>
+        <p>&mdash;</p>
+        <p>Sed viverra ex eu tortor posuere, vitae euismod tortor iaculis.</p>     
+      </div>
+      <div class="col-sm feature">
+        <p class="large-icon"><i class="fas fa-gift"></i></p>
+        <p>GIFT DISCOUNT</p>
+        <p>&mdash;</p>
+        <p>Sed viverra ex eu tortor posuere, vitae euismod tortor iaculis.</p>     
+      </div>
+      <div class="col-sm feature">
+        <p class="large-icon"><i class="fas fa-phone"></i></p>
+        <p>EXPERT SUPPORT</p>
+        <p>&mdash;</p>
+        <p>Sed viverra ex eu tortor posuere, vitae euismod tortor iaculis.</p>     
+      </div>
+      <div class="col-sm feature">
+        <p class="large-icon"><i class="fas fa-clock"></i></p>
+        <p>30 DAYS RETURN</p>
+        <p>&mdash;</p>
+        <p>Sed viverra ex eu tortor posuere, vitae euismod tortor iaculis.</p>     
+      </div>
+    </div>
+  <!-- end of features --> 
+
+  <!-- image enlarge on hover -->  
+  <div class="item">
+    <img class="image-to-enlarge" src="http://blockaudit.io/magento%20photos/bg2.jpg">
+    <div class="item-overlay top">
+        
+    </div>
+  </div>
+  <!-- image enlarge on hover -->
+
+  <!-- POPULAR categories -->
+    <div class="main-categories-header">
+      POPULAR CATEGORIES
+    </div>
+    <a href="http://blockaudit.io/magento/men.html?cat=15" class="container-overlay">
+      <div class="content">
+        <div class="content-overlay"></div>
+        <img class="content-image" src="http://blockaudit.io/magento%20photos/yeezy5.jpg">
+        <div class="content-details fadeIn-left">
+          <h3 class="content-title">Footwear</h3>
+          <p class="content-text">Purchase The Newest Shoe Drop</p>
+        </div>
+      </div>
+    </a>
+    <a href="http://blockaudit.io/magento/men.html?cat=13" class="container-overlay">
+      <div class="content">
+        <div class="content-overlay"></div>
+        <img class="content-image" src="http://blockaudit.io/magento%20photos/yeezy6.jpg">
+        <div class="content-details fadeIn-left">
+          <h3 class="content-title">Outerwear</h3>
+          <p class="content-text">Jackets, Parkas, Coats</p>
+        </div>
+      </div>
+    </a>
+    <a href="http://blockaudit.io/magento/men/accessories.html" class="container-overlay">
+      <div class="content">
+        <div class="content-overlay"></div>
+        <img class="content-image" src="http://blockaudit.io/magento%20photos/yeezy7.jpg">
+        <div class="content-details fadeIn-left">
+          <h3 class="content-title">Accessories</h3>
+          <p class="content-text">Hats, Bags, Socks</p>
+        </div>
+      </div>
+    </a> 
+
+   
+  <!-- end of POPULAR categories -->
+</body>
+
+<!-- hero image slider -->
+<script>
+(function(){
+//remove no-js class
+removeClass(document.getElementsByTagName("html")[0], "no-js"); 
+
+//Hero Slider - by CodyHouse.co
+function HeroSlider( element ) {
+this.element = element;
+this.navigation = this.element.getElementsByClassName("js-cd-nav")[0];
+this.navigationItems = this.navigation.getElementsByTagName('li');
+this.marker = this.navigation.getElementsByClassName("js-cd-marker")[0];
+this.slides = this.element.getElementsByClassName("js-cd-slide");
+this.slidesNumber = this.slides.length;
+this.newSlideIndex = 0;
+this.oldSlideIndex = 0;
+this.autoplay = hasClass(this.element, "js-cd-autoplay");
+this.autoPlayId;
+this.autoPlayDelay = 5000;
+this.init();
+};
+
+HeroSlider.prototype.init = function() {
+var self = this;
+//upload video (if not on mobile devices)
+this.uploadVideo();
+//autoplay slider
+this.setAutoplay();
+//listen for the click event on the slider navigation
+this.navigation.addEventListener('click', function(event){
+    if( event.target.tagName.toLowerCase() == 'div' )
+        return;
+    event.preventDefault();
+    var selectedSlide = event.target;
+    if( hasClass(event.target.parentElement, 'cd-selected') )
+        return;
+    self.oldSlideIndex = self.newSlideIndex;
+    self.newSlideIndex = Array.prototype.indexOf.call(self.navigationItems, event.target.parentElement);
+    self.newSlide();
+    self.updateNavigationMarker();
+    self.updateSliderNavigation();
+    self.setAutoplay();
+});
+
+if(this.autoplay) {
+    // on hover - pause autoplay
+    this.element.addEventListener("mouseenter", function(){
+        clearInterval(self.autoPlayId);
+    });
+    this.element.addEventListener("mouseleave", function(){
+        self.setAutoplay();
+    });
+}
+};
+
+HeroSlider.prototype.uploadVideo = function() {
+var videoSlides = this.element.getElementsByClassName("js-cd-bg-video");
+for( var i = 0; i < videoSlides.length; i++) {
+    if( videoSlides[i].offsetHeight > 0 ) {
+        // if visible - we are not on a mobile device 
+        var videoUrl = videoSlides[i].getAttribute("data-video");
+        videoSlides[i].innerHTML = "<video loop><source src='"+videoUrl+".mp4' type='video/mp4' /><source src='"+videoUrl+".webm' type='video/webm'/></video>";
+        // if the visible slide has a video - play it
+        if( hasClass(videoSlides[i].parentElement, "cd-hero__slide--selected") ) videoSlides[i].getElementsByTagName("video")[0].play();
+    }
+}
+};
+
+HeroSlider.prototype.setAutoplay = function() {
+var self = this;
+if(this.autoplay) {
+    clearInterval(self.autoPlayId);
+    self.autoPlayId = window.setInterval(function(){self.autoplaySlider()}, self.autoPlayDelay);
+}
+};
+
+HeroSlider.prototype.autoplaySlider = function() {
+this.oldSlideIndex = this.newSlideIndex;
+var self = this;
+if( this.newSlideIndex < this.slidesNumber - 1) {
+    this.newSlideIndex +=1;
+    this.newSlide();
+    
+} else {
+    this.newSlideIndex = 0;
+    this.newSlide();
+}
+
+this.updateNavigationMarker();
+this.updateSliderNavigation();
+};
+
+HeroSlider.prototype.newSlide = function(direction) {
+var self = this;
+removeClass(this.slides[this.oldSlideIndex], "cd-hero__slide--selected cd-hero__slide--from-left cd-hero__slide--from-right");
+addClass(this.slides[this.oldSlideIndex], "cd-hero__slide--is-moving");
+setTimeout(function(){removeClass(self.slides[self.oldSlideIndex], "cd-hero__slide--is-moving");}, 500);
+
+for(var i=0; i < this.slidesNumber; i++) {
+    if( i < this.newSlideIndex && this.oldSlideIndex < this.newSlideIndex) {
+        addClass(this.slides[i], "cd-hero__slide--move-left");
+    } else if( i == this.newSlideIndex && this.oldSlideIndex < this.newSlideIndex) {
+        addClass(this.slides[i], "cd-hero__slide--selected cd-hero__slide--from-right");
+    } else if(i == this.newSlideIndex && this.oldSlideIndex > this.newSlideIndex) {
+        addClass(this.slides[i], "cd-hero__slide--selected cd-hero__slide--from-left");
+        removeClass(this.slides[i], "cd-hero__slide--move-left");
+    } else if( i > this.newSlideIndex && this.oldSlideIndex > this.newSlideIndex ) {
+        removeClass(this.slides[i], "cd-hero__slide--move-left");
+    }
+}
+
+this.checkVideo();
+
+};
+
+HeroSlider.prototype.updateNavigationMarker = function() {
+removeClassPrefix(this.marker, 'item');
+addClass(this.marker, "cd-hero__marker--item-"+ (Number(this.newSlideIndex) + 1));
+};
+
+HeroSlider.prototype.updateSliderNavigation = function() {
+removeClass(this.navigationItems[this.oldSlideIndex], 'cd-selected');
+addClass(this.navigationItems[this.newSlideIndex], 'cd-selected');
+};
+
+HeroSlider.prototype.checkVideo = function() {
+//check if a video outside the viewport is playing - if yes, pause it
+var hiddenVideo = this.slides[this.oldSlideIndex].getElementsByTagName('video');
+if( hiddenVideo.length ) hiddenVideo[0].pause();
+
+//check if the select slide contains a video element - if yes, play the video
+var visibleVideo = this.slides[this.newSlideIndex].getElementsByTagName('video');
+if( visibleVideo.length ) visibleVideo[0].play();
+};
+
+var heroSliders = document.getElementsByClassName("js-cd-hero");
+if( heroSliders.length > 0 ) {
+for( var i = 0; i < heroSliders.length; i++) {
+    (function(i){
+        new HeroSlider(heroSliders[i])
+    })(i);
+}
+}
+
+//on mobile - open/close primary navigation clicking/tapping the menu icon 
+document.getElementsByClassName('js-cd-header__nav')[0].addEventListener('click', function(event){
+if(event.target.tagName.toLowerCase() == 'nav') {
+    classie.toggleClass(this.getElementsByTagName('ul')[0], 'cd-is-visible');
+}
+});
+
+function removeClassPrefix(el, prefix) {
+//remove all classes starting with 'prefix'
+var classes = el.className.split(" ").filter(function(c) {
+    return c.indexOf(prefix) < 0;
+});
+el.className = classes.join(" ");
+};
+
+//class manipulations - needed if classList is not supported
+function hasClass(el, className) {
+if (el.classList) return el.classList.contains(className);
+else return !!el.className.match(new RegExp('(\\s|^)' + className + '(\\s|$)'));
+}
+function addClass(el, className) {
+var classList = className.split(' ');
+if (el.classList) el.classList.add(classList[0]);
+else if (!hasClass(el, classList[0])) el.className += " " + classList[0];
+if (classList.length > 1) addClass(el, classList.slice(1).join(' '));
+}
+function removeClass(el, className) {
+var classList = className.split(' ');
+if (el.classList) el.classList.remove(classList[0]);	
+else if(hasClass(el, classList[0])) {
+    var reg = new RegExp('(\\s|^)' + classList[0] + '(\\s|$)');
+    el.className=el.className.replace(reg, ' ');
+}
+if (classList.length > 1) removeClass(el, classList.slice(1).join(' '));
+}
+})();
+</script>
+<!-- end of hero image slider -->
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</html>
